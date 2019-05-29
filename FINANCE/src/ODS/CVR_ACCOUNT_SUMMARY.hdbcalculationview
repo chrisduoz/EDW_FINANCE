@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="EDW_FINANCE.FINANCE.ODS::CVR_ACCOUNT_SUMMARY" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CVR_ACCOUNT_SUMMARY"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="EDW_FINANCE.FINANCE.ODS.SYN::ACCT_SUM">
+    <resourceUri>EDW_FINANCE.FINANCE.ODS.SYN::ACCT_SUM</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="TRN_NUMBER">
+        <descriptions defaultDescription="TRN_NUMBER"/>
+      </viewAttribute>
+      <viewAttribute id="GL_ACCOUNT">
+        <descriptions defaultDescription="GL_ACCOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="AMOUNT">
+        <descriptions defaultDescription="AMOUNT"/>
+      </viewAttribute>
+      <viewAttribute id="POSTING_DATE">
+        <descriptions defaultDescription="POSTING_DATE"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="EDW_FINANCE.FINANCE.ODS.SYN::ACCT_SUM">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TRN_NUMBER" source="TRN_NUMBER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GL_ACCOUNT" source="GL_ACCOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AMOUNT" source="AMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="POSTING_DATE" source="POSTING_DATE"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="TRN_NUMBER" order="1" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TRN_NUMBER"/>
+      <keyMapping columnObjectName="Projection_1" columnName="TRN_NUMBER"/>
+    </attribute>
+    <attribute id="GL_ACCOUNT" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="GL_ACCOUNT"/>
+      <keyMapping columnObjectName="Projection_1" columnName="GL_ACCOUNT"/>
+    </attribute>
+    <attribute id="POSTING_DATE" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="POSTING_DATE"/>
+      <keyMapping columnObjectName="Projection_1" columnName="POSTING_DATE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="AMOUNT" order="3" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="AMOUNT"/>
+      <measureMapping columnObjectName="Projection_1" columnName="AMOUNT"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-60" y="247"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

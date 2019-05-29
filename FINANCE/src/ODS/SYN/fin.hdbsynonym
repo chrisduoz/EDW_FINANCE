@@ -1,0 +1,8 @@
+{
+  "EDW_FINANCE.FINANCE.ODS.SYN::ACCT_SUM": {
+    "target": {
+      "object": "ACCOUNT_SUMMARY",
+      "schema": "FINANCE"
+    }
+  }
+}
